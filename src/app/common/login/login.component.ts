@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from '../models/user-model';
+
+import { TranslateService } from '@ngx-translate/core';
+
 import { fadeInOut } from '../animations/fade-in-out';
-//import { animateFactory } from 'ng2-animate';
+import { User } from '../models/user-model';
+
+
 
 @Component({
   selector: 'app-login',
@@ -20,7 +24,8 @@ export class LoginComponent implements OnInit {
   };
 
   constructor(
-    public router: Router
+    public router: Router,
+    public translate: TranslateService
   ) { }
 
   ngOnInit() {
@@ -47,7 +52,10 @@ export class LoginComponent implements OnInit {
         this.router.navigateByUrl("index");
       } else {
         this.error.show = true;
-        this.error.msg = '用户名或密码错误！';
+        this.translate.get('sys.loginModule.loginFailMsg').subscribe((msg: string) => {
+          this.error.msg = msg;
+        });
+
       }
     }
 

@@ -1,0 +1,25 @@
+{
+  "sys": {
+    "app": {
+      "name": "XXXX系统"
+    },
+    "loginModule": {
+      "title": "系统登录",
+      "form": {
+        "userName": {
+          "placeholder": "请输入用户名...",
+          "validate": "用户名不能为空!"
+        },
+        "password": {
+          "placeholder": "请输入密码...",
+          "validate": "密码不能少于5位!"
+        },
+        "rememberMe": "记住我",
+        "loginBtn" : "登录"
+
+      },
+      "forgetPwd" : "忘记密码?",
+      "loginFailMsg": "用户名或密码错误!"
+    }
+  }
+}

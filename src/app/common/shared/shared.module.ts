@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { PaginationModule } from 'ngx-bootstrap';
+import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { PaginationModule } from 'ngx-bootstrap';
   exports: [
     CommonModule,
     FormsModule,
+    TranslateModule,
     ReactiveFormsModule
   ]
 })

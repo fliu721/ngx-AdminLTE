@@ -1,0 +1,25 @@
+{
+  "sys": {
+    "app": {
+      "name": "XXXX  System"
+    },
+    "loginModule": {
+      "title": "User Sign In",
+      "form": {
+        "userName": {
+          "placeholder": "UserName...",
+          "validate": "UserName can't be empty!"
+        },
+        "password": {
+          "placeholder": "Password...",
+          "validate": "Password must at least 8 characters."
+        },
+        "rememberMe": "Remember Me",
+        "loginBtn" : "Sign in"
+
+      },
+      "forgetPwd" : "Forgot Password?",
+      "loginFailMsg": "Invalid username or password!"
+    }
+  }
+}
