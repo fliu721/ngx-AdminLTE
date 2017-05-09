@@ -1,0 +1,19 @@
+.dropdown-menu {
+  width: auto !important;
+}
+
+.dropdown-menu>li>a {
+  padding: 8px 16px;
+  color: #6f6f6f;
+  text-decoration: none;
+  display: block;
+  clear: both;
+  font-weight: 300;
+  cursor: pointer;
+  line-height: 18px;
+  white-space: nowrap;
+}
+
+.lockIcon {
+  margin-right: 14px !important;
+}
