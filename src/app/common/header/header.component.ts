@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 import { Password } from '../models/password';
 import { ModalDirective } from 'ngx-bootstrap/modal';
-import { ToastsManager } from 'ng2-toastr/ng2-toastr';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     public router: Router,
-    public toastr: ToastsManager,
+    public toastr: ToastrService,
   ) {
 
   }

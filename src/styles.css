@@ -5,7 +5,7 @@
 @import "../node_modules/admin-lte/dist/css/skins/skin-blue.css";
 @import "../node_modules/sweetalert2/dist/sweetalert2.css";
 @import "../node_modules/icheck/skins/square/blue.css";
-@import "../node_modules/ng2-toastr/bundles/ng2-toastr.min.css";
+@import "../node_modules/ngx-toastr/toastr.css";
 
 .form-group[required] label:after {
   margin-left: 2px;
