@@ -251,19 +251,19 @@
             </li>-->
             <li>
               <a (click)="showChPwdModal()">
-                <i class="fa fa-key"></i>修改密码</a>
+                <i class="fa fa-key"></i>{{'sys.headerModule.dropDown.changePassword' | translate}}</a>
             </li>
 
             <li class="divider"> </li>
             <li>
-              <a [swal]="{title:'确认锁定', text: '锁定后需要密码才能解锁，确定要锁定?', type: 'warning', confirmButtonText: '锁定'}"
+              <a [swal]="lockSwal"
                 (confirm)="doLock()">
-                <i class="fa fa-lock lockIcon"></i>锁定会话</a>
+                <i class="fa fa-lock lockIcon"></i>{{'sys.headerModule.dropDown.lockSession' | translate}}</a>
             </li>
             <li>
-              <a [swal]="{title:'确认离开', text: '您是否确定要退出系统?', type: 'warning', confirmButtonText: '退出'}"
+              <a [swal]="logoutSwal"
                  (confirm)="doLogout()">
-                <i class="fa fa-sign-out"></i>退出系统</a>
+                <i class="fa fa-sign-out"></i>{{'sys.headerModule.dropDown.logout' | translate}}</a>
             </li>
           </ul>
         </li>
@@ -281,7 +281,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title pull-left">修改密码</h4>
+        <h4 class="modal-title pull-left">{{'sys.headerModule.dropDown.changePassword' | translate}}</h4>
         <button type="button" class="close pull-right" aria-label="Close" (click)="chPwdModal.hide()">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -292,23 +292,29 @@
           <div class="form-group" required
                [ngClass]="{ 'has-error': oldPwd.dirty && oldPwd.invalid,
                             'has-success': oldPwd.dirty && oldPwd.valid}">
-            <label class="control-label col-md-3">原密码</label>
+            <label class="control-label col-md-3">{{'sys.headerModule.changePwdModal.oldPwd.label' | translate}}</label>
             <div class="col-md-8">
-              <input type="password" class="form-control" placeholder="原密码"
+              <input type="password" class="form-control"
+                     placeholder="{{'sys.headerModule.changePwdModal.oldPwd.placeHolder' | translate}}"
                      name="oldPwd" required [(ngModel)]="pwd.oldPwd" #oldPwd="ngModel">
-              <span *ngIf="oldPwd.dirty && oldPwd.invalid" class="help-block">原密码不能为空</span>
+              <span *ngIf="oldPwd.dirty && oldPwd.invalid" class="help-block">
+                {{'sys.headerModule.changePwdModal.oldPwd.helpMsg' | translate}}
+              </span>
             </div>
           </div>
           <div class="form-group password-strength" required
                [ngClass]="{ 'has-error': newPwd.dirty && newPwd.invalid,
                             'has-success':  newPwd.dirty && newPwd.valid}">
-            <label class="control-label col-md-3">新密码</label>
+            <label class="control-label col-md-3">
+              {{'sys.headerModule.changePwdModal.newPwd.label' | translate}}
+            </label>
             <div class="col-md-8">
-              <input type="password" class="form-control" placeholder="新密码" name="newPwd" required
+              <input type="password" class="form-control" name="newPwd" required
+                     placeholder="{{'sys.headerModule.changePwdModal.newPwd.placeHolder' | translate}}"
                      [(ngModel)]="pwd.newPwd" #newPwd="ngModel" minlength="5" maxlength="16"
                      validateEqual="confirmPwd" reverse=true>
               <span *ngIf="newPwd.dirty && newPwd.invalid" class="help-block">
-                不能为空，且密码长度必须在6到16位之间
+                {{'sys.headerModule.changePwdModal.newPwd.helpMsg' | translate}}
               </span>
             </div>
 
@@ -316,20 +322,29 @@
           <div class="form-group password-strength" required
                [ngClass]="{ 'has-error': confirmPwd.dirty && confirmPwd.invalid,
                             'has-success':  confirmPwd.dirty && confirmPwd.valid}">
-            <label class="control-label col-md-3">确认密码</label>
+            <label class="control-label col-md-3">
+              {{'sys.headerModule.changePwdModal.confirmPwd.label' | translate}}
+            </label>
             <div class="col-md-8">
-              <input type="password" class="form-control" placeholder="再次输入新密码" name="confirmPwd" required
+              <input type="password" class="form-control"  name="confirmPwd" required
+                     placeholder="{{'sys.headerModule.changePwdModal.confirmPwd.placeHolder' | translate}}"
                      [(ngModel)]="pwd.confirmPwd" #confirmPwd="ngModel" minlength="5" maxlength="16"
                      validateEqual="newPwd">
-              <span *ngIf="confirmPwd.dirty && confirmPwd.invalid" class="help-block">两次输入的密码必须一致</span>
+              <span *ngIf="confirmPwd.dirty && confirmPwd.invalid" class="help-block">
+                {{'sys.headerModule.changePwdModal.confirmPwd.helpMsg' | translate}}
+              </span>
             </div>
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-success" (click)="doChangePwd()"
-                [disabled]="!chPwdForm.touched || chPwdForm.invalid"><i class="fa fa-check"></i>更改</button>
-        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="chPwdModal.hide()"><i class="fa fa-times"></i>取消</button>
+                [disabled]="!chPwdForm.touched || chPwdForm.invalid">
+          <i class="fa fa-check"></i>{{'sys.common.saveBtnText' | translate}}
+        </button>
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="chPwdModal.hide()">
+          <i class="fa fa-times"></i>{{'sys.common.cancelBtnText' | translate}}
+        </button>
       </div>
     </div>
   </div>

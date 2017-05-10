@@ -3,6 +3,11 @@
     "app": {
       "name": "XXXX系统"
     },
+    "common": {
+      "cancelBtnText": "取消",
+      "confirmBtnText": "确定",
+      "saveBtnText": "保存"
+    },
     "loginModule": {
       "title": "系统登录",
       "form": {
@@ -20,6 +25,40 @@
       },
       "forgetPwd" : "忘记密码?",
       "loginFailMsg": "用户名或密码错误!"
+    },
+    "headerModule": {
+      "dropDown": {
+        "changePassword": "修改密码",
+        "lockSession": "锁定会话",
+        "logout": "退出系统",
+        "lockTitle": "确认锁定",
+        "lockContent": "锁定后将需要提供密码解锁，确定要锁定?",
+        "lockBtnText": "锁定",
+        "logoutTitle": "确认退出",
+        "logoutContent": "请确保您的数据已经保存，您是否确定要退出系统?",
+        "logoutBtnText": "退出"
+      },
+      "changePwdModal": {
+        "oldPwd": {
+          "label": "原密码",
+          "placeHolder": "请输入当前密码...",
+          "helpMsg": "原密码不能为空"
+        },
+        "newPwd": {
+          "label": "新密码",
+          "placeHolder": "请输入新密码...",
+          "helpMsg": "不能为空，且密码长度必须在6到16位之间"
+        },
+        "confirmPwd": {
+          "label": "确认密码",
+          "placeHolder": "请再次输入新密码",
+          "helpMsg": "两次输入的密码必须一致"
+        },
+        "successTips": {
+          "title": "操作提示",
+          "content": "密码修改成功！请牢记您的新密码！"
+        }
+      }
     }
   }
 }

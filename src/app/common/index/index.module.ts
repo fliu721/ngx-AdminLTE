@@ -22,10 +22,8 @@ import { HomeComponent } from '../home/home.component';
     SharedModule,
     ModalModule.forRoot(),
     SweetAlert2Module.forRoot({
-      confirmButtonText: '确定',
-      cancelButtonText: '取消',
       showCancelButton: true
-    }),
+    }), //https://github.com/toverux/ngsweetalert2
     RouterModule.forChild(indexRoutes)
   ],
   exports: [],
@@ -40,4 +38,5 @@ import { HomeComponent } from '../home/home.component';
   ],
   providers: [],
 })
-export class IndexModule { }
+export class IndexModule {
+}

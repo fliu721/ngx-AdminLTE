@@ -2,9 +2,13 @@ import {Component, OnInit, ViewChild} from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { Password } from '../models/password';
+
 import { ModalDirective } from 'ngx-bootstrap/modal';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateService } from '@ngx-translate/core';
+
+
+import { Password } from '../models/password';
 
 
 @Component({
@@ -18,17 +22,40 @@ export class HeaderComponent implements OnInit {
   @ViewChild('chPwdForm') public chPwdForm : NgForm;
 
   public pwd : Password = new Password ();
+  public lockSwal : any = {
+    title: "",
+    text: "",
+    type: "warning",
+    confirmButtonText: ""
+  };
+
+  public logoutSwal : any = {
+    title: "",
+    text: "",
+    type: "warning",
+    confirmButtonText: ""
+  };
 
 
   constructor(
     public router: Router,
     public toastr: ToastrService,
+    public translate: TranslateService
   ) {
 
   }
 
   ngOnInit() {
+    this.translate.get("sys.headerModule.dropDown").subscribe((res : any) => {
+      this.lockSwal.title = res.lockTitle;
+      this.lockSwal.text = res.lockContent;
+      this.lockSwal.confirmButtonText = res.lockBtnText;
 
+      this.logoutSwal.title = res.logoutTitle;
+      this.logoutSwal.text = res.logoutContent;
+      this.logoutSwal.confirmButtonText = res.logoutBtnText;
+
+    });
   }
 
   /**
@@ -46,7 +73,10 @@ export class HeaderComponent implements OnInit {
   doChangePwd () {
     if (this.chPwdForm.valid) {
       this.chPwdModal.hide();
-      this.toastr.success('密码修改成功!请牢记您的新密码！', '成功!');
+      this.translate.get("sys.headerModule.changePwdModal.successTips").subscribe((res : any) => {
+        this.toastr.success(res.content, res.title);
+      });
+
     }
   }
 

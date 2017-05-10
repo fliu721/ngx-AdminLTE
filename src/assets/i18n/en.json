@@ -3,6 +3,11 @@
     "app": {
       "name": "XXXX  System"
     },
+    "common": {
+      "cancelBtnText": "Cancel",
+      "confirmBtnText": "Confirm",
+      "saveBtnText": "Save"
+    },
     "loginModule": {
       "title": "User Sign In",
       "form": {
@@ -12,7 +17,7 @@
         },
         "password": {
           "placeholder": "Password...",
-          "validate": "Password must at least 8 characters."
+          "validate": "Password must at least 5 characters."
         },
         "rememberMe": "Remember Me",
         "loginBtn" : "Sign in"
@@ -20,6 +25,40 @@
       },
       "forgetPwd" : "Forgot Password?",
       "loginFailMsg": "Invalid username or password!"
+    },
+    "headerModule": {
+      "dropDown": {
+        "changePassword": "Change Password",
+        "lockSession": "Lock Session",
+        "logout": "Sign Out",
+        "lockTitle": "Confirm Lock",
+        "lockContent": "After you locked session, you must input your password to unlock, do you confirm to lock?",
+        "lockBtnText": "Lock",
+        "logoutTitle": "Confirm Sign Out",
+        "logoutContent": "Please make sure your data has saved, Are you confirm to sign out this system?",
+        "logoutBtnText": "Sign Out"
+      },
+      "changePwdModal": {
+        "oldPwd": {
+          "label": "Password",
+          "placeHolder": "Please input your password...",
+          "helpMsg": "Password required."
+        },
+        "newPwd": {
+          "label": "New Password",
+          "placeHolder": "Please input new password...",
+          "helpMsg": "Required, and must between 5 and 15 characters."
+        },
+        "confirmPwd": {
+          "label": "Confirm Password",
+          "placeHolder": "Repeat your new password...",
+          "helpMsg": "Entered passwords differ."
+        },
+        "successTips": {
+          "title": "Tips",
+          "content": "Change password successful! Please remember to it."
+        }
+      }
     }
   }
 }
