@@ -1,0 +1,8 @@
+<div [class]="'alert alert-' + type" role="alert"
+     [ngClass]="classes" *ngIf="!isClosed && isShow" [@fadeInOut]>
+  <button type="button" class="close" aria-label="Close" (click)="close()" *ngIf="dismissible">
+    <span aria-hidden="true">&times;</span>
+    <span class="sr-only">Close</span>
+  </button>
+  <strong><i class="fa-lg fa fa-warning"></i></strong> {{message}}
+</div>
