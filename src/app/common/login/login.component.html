@@ -7,14 +7,17 @@
     <div class="login-box-body">
       <p class="login-box-msg">{{'sys.loginModule.title' | translate}}</p>
 
-      <div class="alert alert-danger" *ngIf="error.show"  [@fadeInOut]>
+      <!--<div class="alert alert-danger" *ngIf="error.show"  [@fadeInOut]>
         <strong><i class="fa-lg fa fa-warning"></i></strong> {{error.msg}}
-      </div>
-      <form #form="ngForm" (ngSubmit)="doLogin(form)">
+      </div>-->
+      <alert type="danger">
+
+      </alert>
+      <form #form="ngForm">
         <div class="form-group has-feedback" [ngClass]="{ 'has-error': userName.dirty && userName.invalid }">
           <input type="text" class="form-control"  required name="userName"
                  placeholder="{{'sys.loginModule.form.userName.placeholder' | translate}}"
-                 [(ngModel)]="user.userName" #userName="ngModel" (input)="onChange()">
+                 [(ngModel)]="user.username" #userName="ngModel" (input)="onChange()">
           <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           <span *ngIf="userName.dirty && userName.invalid" class="help-block" >
             {{'sys.loginModule.form.userName.validate' | translate}}

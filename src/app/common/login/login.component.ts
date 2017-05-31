@@ -6,6 +6,8 @@ import { TranslateService } from '@ngx-translate/core';
 
 import { fadeInOut } from '../animations/fade-in-out';
 import { User } from '../models/user-model';
+import { LoginService } from './login.service';
+import { AlertConfig } from '../alert';
 
 
 
@@ -25,7 +27,9 @@ export class LoginComponent implements OnInit {
 
   constructor(
     public router: Router,
-    public translate: TranslateService
+    public loginService: LoginService,
+    public translate: TranslateService,
+    private alertConfig: AlertConfig
   ) { }
 
   ngOnInit() {
@@ -42,21 +46,20 @@ export class LoginComponent implements OnInit {
 
 
   onChange() {
-    this.error.show = false;
+    this.alertConfig.showStatus = false;
   }
 
   doLogin(form : NgForm) {
-
     if (form.valid) {
-      if (this.user.userName == 'admin' && this.user.password == 'admin') {
-        this.router.navigateByUrl("index");
-      } else {
-        this.error.show = true;
-        this.translate.get('sys.loginModule.loginFailMsg').subscribe((msg: string) => {
-          this.error.msg = msg;
-        });
+      this.loginService.login(this.user)
+        .subscribe(
+          data => {
+            if (data.json().status === 200) {
+              this.router.navigateByUrl("index");
+            }
+          }
+        );
 
-      }
     }
 
   }

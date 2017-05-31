@@ -1,0 +1,1 @@
+export { OnChange } from './decorators';

@@ -8,16 +8,28 @@ const routes: Routes = [
   {
     path: '',
     redirectTo: 'login',
-    pathMatch: 'full'
+    pathMatch: 'full',
+    data: {
+      title : '系统登录'
+    }
   }, {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    data: {
+      title : '系统登录'
+    }
   }, {
     path: 'lock',
-    component: LockComponent
+    component: LockComponent,
+    data: {
+      title : '锁定会话'
+    }
   }, {
     path: 'index',
-    loadChildren: './common/index/index.module#IndexModule'
+    loadChildren: './common/index/index.module#IndexModule',
+    data: {
+      title : '首页'
+    }
   }
 ];
 
